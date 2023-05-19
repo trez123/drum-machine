@@ -1,38 +1,140 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2B2D42;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Drum-container{
+  width: 50%;
+  min-height: 40vh;
+  background-color: #EDF2F4;
+  border: 5px solid #0374ff;
+  display: flex;
+  gap: 1rem;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Drums{
+  width: 50%;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 2rem 0 2rem 2rem;
 }
+
+.drum-pad{
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 2px 2px 8px #888888;
+  border-radius: 5px;
+  background-color: #2B2D42;
+  color: #EDF2F4;
+}
+
+.Controls{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.Label{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+.Label h1{
+  margin: 0;
+  font-size: 2rem;
+  color: #2B2D42;
+}
+
+.Switch{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.Switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.Slider{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #8D99AE;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.Slider:before{
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .Slider{
+  background-color: #0374ff;
+}
+
+
+input:checked + .Slider:before{
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.Slider.Round {
+  border-radius: 34px;
+}
+
+.Slider.Round:before {
+  border-radius: 50%;
+}
+
+.Title-label{
+  font-size: 1rem;
+  margin: 0;
+}
+
+.Display{
+  background-color: #2B2D42;
+  color: #EDF2F4;
+  width: 60%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  min-height: 3.5rem;
+}
+
